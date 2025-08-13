@@ -1,13 +1,11 @@
-#  AccessVault — Secure Secrets Vault (Spring Boot)
+# AccessVault — Secure Secrets Vault (Spring Boot)
+
+**TL;DR:** Production‑grade secrets vault with encryption at rest (AES‑GCM), strict RBAC, audit logging (DB + JSON), Swagger UI, and Docker‑ready deployment.
+
+*Use cases:* Store API keys and credentials safely for small teams, isolate per‑user secrets, and keep an auditable trail for internal tools and services.
 
 > **By Aswathi Vipin**
 > **Backend Engineer | SDE-1 Ready | Security, Scalability & Clean Code Focus**
-
----
-
-## Tech Stack
-
-Java 21 · Spring Boot 3.5 · Spring Security · JPA/Hibernate · MySQL · Bucket4j · JJWT · Lombok · OpenCSV · H2 (tests) · Swagger/OpenAPI · Docker/Compose
 
 ---
 
@@ -21,6 +19,12 @@ Java 21 · Spring Boot 3.5 · Spring Security · JPA/Hibernate · MySQL · Bucke
 * **Future-proof relevance** — applies core security & scalability patterns still critical in AI-driven, fast-evolving systems.
 * **Full lifecycle coverage** — design, implementation, automated tests, manual edge case testing.
 * **Swagger UI** for instant endpoint exploration.
+
+---
+
+## Tech Stack
+
+Java 21 · Spring Boot 3.5 · Spring Security · JPA/Hibernate · MySQL · Bucket4j · JJWT · Lombok · OpenCSV · H2 (tests) · Swagger/OpenAPI · Docker/Compose
 
 ---
 
@@ -67,7 +71,7 @@ AES-GCM encryption handled at entity/converter layer.
 
 ---
 
-##  Quick Start
+## Quick Start
 
 **1) Env Vars**
 
@@ -93,7 +97,7 @@ Swagger UI → [http://localhost:8089/swagger-ui/index.html](http://localhost:80
 
 ---
 
-##  Docker Deployment
+## Docker Deployment
 
 ```bash
 docker build -t accessvault:latest .

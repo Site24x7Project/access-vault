@@ -1,0 +1,23 @@
+# Maven build
+**/target/
+
+# IDE and editor settings
+**/.idea/
+**/.vscode/
+*.iml
+
+# Logs and exports (runtime generated)
+**/logs/
+**/exports/
+
+# Maven wrapper files
+.mvn/
+mvnw
+mvnw.cmd
+
+# OS-specific
+.DS_Store
+Thumbs.db
+
+# Environment variables
+.env

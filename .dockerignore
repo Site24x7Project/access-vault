@@ -1,0 +1,10 @@
+**/target/
+**/.git
+**/.idea
+**/.vscode
+**/logs/
+**/exports/
+.mvn/
+mvnw
+mvnw.cmd
+*.iml

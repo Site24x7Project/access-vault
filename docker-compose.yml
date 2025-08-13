@@ -1,0 +1,40 @@
+services:
+  db:
+    image: mysql:8.4
+    restart: unless-stopped
+    environment:
+      MYSQL_DATABASE: accessvault
+      MYSQL_ROOT_PASSWORD: ${DB_PASS:-changeme}
+    ports:
+      - "3307:3306"   # your new host port is fine
+    volumes:
+      - db_data:/var/lib/mysql
+    healthcheck:
+      test: ["CMD", "mysqladmin", "ping", "-h", "localhost", "-p${DB_PASS:-changeme}"]
+      interval: 5s
+      timeout: 3s
+      retries: 20
+
+  app:
+    build: .
+    image: accessvault:latest
+    depends_on:
+      db:
+        condition: service_healthy      # ← use the healthcheck
+    env_file:
+      - .env
+    environment:
+      DB_URL: jdbc:mysql://db:3306/accessvault
+      EXPORT_PATH: /app/exports
+      LOGGING_FILE_NAME: ""
+      SERVER_PORT: 8089
+      JWT_SECRET: "Sj4q9RtLp#WfVm7Nd$$TgXx0@BzYkE2Lc"
+    ports:
+      - "8089:8089"
+    volumes:
+      - exports:/app/exports
+    restart: unless-stopped
+
+volumes:
+  db_data:
+  exports:

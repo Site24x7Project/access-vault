@@ -1,0 +1,28 @@
+package com.accessvault.config;
+
+import org.springframework.context.annotation.Bean;
+import org.springframework.context.annotation.Configuration;
+import org.springframework.core.annotation.Order;
+import org.springframework.security.config.annotation.web.builders.HttpSecurity;
+import org.springframework.security.config.http.SessionCreationPolicy;
+import org.springframework.security.web.SecurityFilterChain;
+
+@Configuration
+public class SwaggerSecurityConfig {
+
+  @Bean
+  @Order(0) // higher priority than your main chain
+  SecurityFilterChain swaggerChain(HttpSecurity http) throws Exception {
+    return http
+      .securityMatcher(
+        "/v3/api-docs",        // <-- add root
+        "/v3/api-docs/**",
+        "/swagger-ui.html",
+        "/swagger-ui/**"
+      )
+      .csrf(csrf -> csrf.disable())
+      .sessionManagement(sm -> sm.sessionCreationPolicy(SessionCreationPolicy.STATELESS))
+      .authorizeHttpRequests(auth -> auth.anyRequest().permitAll())
+      .build();
+  }
+}

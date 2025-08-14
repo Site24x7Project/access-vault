@@ -1,6 +1,6 @@
 # AccessVault — Secure Secrets Vault (Spring Boot)
 
-**TL;DR:** Production‑grade secrets vault with encryption at rest (AES‑GCM), strict RBAC, audit logging (DB + JSON), Swagger UI, and Docker‑ready deployment.
+Production‑grade secrets vault with encryption at rest (AES‑GCM), strict RBAC, audit logging (DB + JSON), Swagger UI, and Docker‑ready deployment.
 
 *Use cases:* Store API keys and credentials safely for small teams, isolate per‑user secrets, and keep an auditable trail for internal tools and services.
 

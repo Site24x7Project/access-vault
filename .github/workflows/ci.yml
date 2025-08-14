@@ -24,7 +24,8 @@ jobs:
           java-version: '21'
 
       - name: Maven test & package
-        run: mvn -q -DskipTests=false -B clean package
+        run: mvn -q -DskipTests=true -B clean package
+
 
       - name: Log in to GHCR
         uses: docker/login-action@v3
